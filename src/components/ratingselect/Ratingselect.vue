@@ -71,17 +71,14 @@
         if (!event._constructed) {
           return;
         }
-        console.log(type);
         this.selectTypeC = type;
         this.$emit('ratingtypeselected', type);
       },
       toggleContent (event) {
-        console.log(this.onlyContentC);
         if (!event._constructed) {
           return;
         }
         this.onlyContentC = !this.onlyContentC;
-        console.log(this.onlyContentC);
         this.$emit('contenttoogle', this.onlyContentC);
       }
     }

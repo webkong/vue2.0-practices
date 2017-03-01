@@ -1,54 +1,56 @@
 <template>
-  <div class="ratings">
-    <div class="ratings-content">
-      <div class="overview">
-        <div class="overview-left">
-          <div class="score">{{seller.score}}</div>
-          <div class="title">综合评分</div>
-          <div class="rank">高于周边商家{{seller.rankRate}}%</div>
-        </div>
-        <div class="overview-right">
-          <div class="score-wrapper">
-            <span class="title">服务态度</span>
-            <star :size="36" :score="seller.serviceScore"></star>
-            <span class="score">{{seller.serviceScore}}</span>
+  <div class="ratings" ref="rating-list">
+    <div>
+      <div class="ratings-content">
+        <div class="overview">
+          <div class="overview-left">
+            <div class="score">{{seller.score}}</div>
+            <div class="title">综合评分</div>
+            <div class="rank">高于周边商家{{seller.rankRate}}%</div>
           </div>
-          <div class="score-wrapper">
-            <span class="title">商品评分</span>
-            <star :size="36" :score="seller.foodScore"></star>
-            <span class="score">{{seller.foodScore}}</span>
-          </div>
-          <div class="deliver-wrapper">
-            <span class="title">送达时间</span>
-            <span class="time">{{seller.deliveryTime}}分钟</span>
-          </div>
-        </div>
-      </div>
-      <split></split>
-      <ratingselect :select-type="selectType" :only-content="onlyContent" :ratings="ratings"
-                    @ratingtypeselected="_setSelectType" @contenttoogle="_setOnlyContent"></ratingselect>
-      <div class="rating-wrapper" ref="rating-list">
-        <ul v-show="ratings && ratings.length">
-          <li class="rating-item bdr-1px" v-for="rating in ratings" v-show="needShow(rating.rateType,rating.text)">
-            <div class="avatar">
-              <img :src="rating.avatar" height="28" width="28" alt="">
+          <div class="overview-right">
+            <div class="score-wrapper">
+              <span class="title">服务态度</span>
+              <star :size="36" :score="seller.serviceScore"></star>
+              <span class="score">{{seller.serviceScore}}</span>
             </div>
-            <div class="content">
-              <div class="name">{{rating.username}}</div>
-              <div class="star-wrapper">
-                <star :size="24" :score="rating.score"></star>
-                <span class="delivery" v-show="rating.deliveryTime">{{rating.deliveryTime}}分钟送达</span>
+            <div class="score-wrapper">
+              <span class="title">商品评分</span>
+              <star :size="36" :score="seller.foodScore"></star>
+              <span class="score">{{seller.foodScore}}</span>
+            </div>
+            <div class="deliver-wrapper">
+              <span class="title">送达时间</span>
+              <span class="time">{{seller.deliveryTime}}分钟</span>
+            </div>
+          </div>
+        </div>
+        <split></split>
+        <ratingselect :select-type="selectType" :only-content="onlyContent" :ratings="ratings"
+                      @ratingtypeselected="_setSelectType" @contenttoogle="_setOnlyContent"></ratingselect>
+        <div class="rating-wrapper">
+          <ul v-show="ratings && ratings.length">
+            <li class="rating-item bdr-1px" v-for="rating in ratings" v-show="needShow(rating.rateType,rating.text)">
+              <div class="avatar">
+                <img :src="rating.avatar" height="28" width="28" alt="">
               </div>
-              <p class="text">{{rating.text}}</p>
-              <div class="recommend" v-show="rating.recommend && rating.recommend.length">
-                <span class="icon-thumb_up"></span>
-                <span class="item" v-for="item in rating.recommend">{{item}}</span>
-              </div>
+              <div class="content">
+                <div class="name">{{rating.username}}</div>
+                <div class="star-wrapper">
+                  <star :size="24" :score="rating.score"></star>
+                  <span class="delivery" v-show="rating.deliveryTime">{{rating.deliveryTime}}分钟送达</span>
+                </div>
+                <p class="text">{{rating.text}}</p>
+                <div class="recommend" v-show="rating.recommend && rating.recommend.length">
+                  <span class="icon-thumb_up"></span>
+                  <span class="item" v-for="item in rating.recommend">{{item}}</span>
+                </div>
 
-            </div>
-            <div class="time">{{rating.rateTime | formatDate}}</div>
-          </li>
-        </ul>
+              </div>
+              <div class="time">{{rating.rateTime | formatDate}}</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -200,11 +202,6 @@
             color rgb(147, 153, 159)
 
     .rating-wrapper
-      position absolute
-      top 250px
-      bottom 0
-      left 0
-      overflow hidden
       padding 0 18px
       .rating-item
         display: flex
