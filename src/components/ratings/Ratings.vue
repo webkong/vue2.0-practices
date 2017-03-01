@@ -28,8 +28,8 @@
       <ratingselect :select-type="selectType" :only-content="onlyContent" :ratings="ratings"
                     @ratingtypeselected="_setSelectType" @contenttoogle="_setOnlyContent"></ratingselect>
       <div class="rating-wrapper" ref="rating-list">
-        <ul>
-          <li class="rating-item bdr-1px" v-for="rating in ratings">
+        <ul v-show="ratings && ratings.length">
+          <li class="rating-item bdr-1px" v-for="rating in ratings" v-show="needShow(rating.rateType,rating.text)">
             <div class="avatar">
               <img :src="rating.avatar" height="28" width="28" alt="">
             </div>
@@ -91,9 +91,26 @@
     methods: {
       _setSelectType (type) {
         this.selectType = type;
+        this.$nextTick(() => {
+          this.scroll.refresh();
+        });
       },
       _setOnlyContent (type) {
+        console.log(type);
         this.onlyContent = type;
+        this.$nextTick(() => {
+          this.scroll.refresh();
+        });
+      },
+      needShow (type, text) {
+        if (this.onlyContent && !text) {
+          return false;
+        }
+        if (this.selectType === ALL) {
+          return true;
+        } else {
+          return this.selectType === type;
+        }
       }
     },
     filters: {
@@ -183,10 +200,15 @@
             color rgb(147, 153, 159)
 
     .rating-wrapper
-      display block
+      position absolute
+      top 250px
+      bottom 0
+      left 0
+      overflow hidden
       padding 0 18px
       .rating-item
         display: flex
+        width 100%
         border-1px(rgba(7, 17, 27, 0.1))
         padding 18px 0
         .avatar

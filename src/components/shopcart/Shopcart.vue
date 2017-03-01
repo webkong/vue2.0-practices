@@ -364,12 +364,18 @@
           font-size 12px
           color rgb(0, 160, 220)
       .list-content
+        position: absolute
+        bottom 70px
+        top 42px
+        right 0
+        left 0
         padding 0 18px
-        min-height 217px
+        min-height 215px
         overflow hidden
         background #fff
         .food
           position relative
+          width 100%
           display block
           padding 12px 0
           box-sizing border-box
