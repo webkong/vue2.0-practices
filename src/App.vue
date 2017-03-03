@@ -3,13 +3,13 @@
     <s-header :seller="seller"></s-header>
     <div class="tab bdr-1px">
       <div class="tab-item">
-        <router-link to="/goods">商品</router-link>
+        <router-link :to="{name: 'goods', params: {id: 12333}}">商品</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/ratings">评论</router-link>
+        <router-link :to="{name: 'ratings', params: {id: 12333}}">评论</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/seller">商家</router-link>
+        <router-link :to="{name: 'seller', params: {id: 12333}}">商家</router-link>
       </div>
     </div>
     <div class="content">
@@ -22,7 +22,7 @@
 
 <script type="text/ecmascript-6" charset="utf-8">
   import header from 'components/header/Header';
-  import {urlParse} from './assets/common/js/util';
+//  import {urlParse} from './assets/common/js/util';
   const ERR_OK = 0;
 
   export default {
@@ -31,7 +31,7 @@
       return {
         seller: {
           id: (() => {
-            let queryParam = urlParse();
+            let queryParam = this.$route.params;
             console.log(queryParam.id);
             return queryParam.id;
           })()

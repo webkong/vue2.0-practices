@@ -6,10 +6,10 @@ import Ratings from 'components/ratings/Ratings';
 
 Vue.use(Router);
 const routes = [
-  {path: '/', component: Goods},
-  {path: '/goods', component: Goods},
-  {path: '/ratings', component: Ratings},
-  {path: '/seller', name: 'seller', component: Seller}
+  {path: '/:id', redirect: '/goods/:id'},
+  {path: '/goods/:id', name: 'goods', component: Goods},
+  {path: '/ratings/:id', name: 'ratings', component: Ratings},
+  {path: '/seller/:id', name: 'seller', component: Seller}
 ];
 
 export default new Router({

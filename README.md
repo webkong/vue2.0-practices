@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+使用了vue2.0，在huangyi老师的教程中敲写的代码示例， 开始按照老师的代码书写，后面的代码按照个人思路写成。
+
 ## Build Setup
 
 ``` bash
@@ -27,4 +29,3 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
