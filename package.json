@@ -2,7 +2,7 @@
   "name": "seller",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "wangsw <wangsw@ushareit.com>",
+  "author": "webkong <772930508@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
