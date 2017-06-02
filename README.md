@@ -26,8 +26,10 @@ vue2.0 + Express + webpack + stylus + ES6 + vuex
 ## 下载
 
 ```bash
-git clone https://github.com/webkong/elem-practices.git
-cd elem-practices
+git clone https://github.com/webkong/vue2.0-practices.git
+
+cd vue2.0-practices
+
 npm install
 ```
 ## 运行
@@ -54,8 +56,13 @@ npm test
 
 ## 说明
 >本项目主要是理解vue2.0 和 vuex 的原理和使用方式，以及配合使用方式
+
 >使用了相关的vue-router + vue-resource等
+
 >感觉可以的话可以点“Star”支持
+
 >或者follow以下
+
 >有什么问题可以在issues中提，或者发现更好的解决方案
+
 >开发环境 MacOS + Chrome56 + nodejs 6.10.2
