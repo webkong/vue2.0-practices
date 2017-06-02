@@ -2,14 +2,15 @@
 
 > A Vue.js project
 
-部分功能的外卖系统，使用了vue2.0, vue2.0 单页面应用。
+部分功能的外卖系统，使用了vue2.0, SPA单页面应用。
 
-##技术栈
+## 技术栈
 
 vue2.0 + Express + webpack + stylus + ES6 + vuex
 
-##目录结构
+## 目录结构
 
+```
 --build 打包配置文件和express服务文件
 --config 项目环境配置
 --resource 物料
@@ -21,7 +22,7 @@ vue2.0 + Express + webpack + stylus + ES6 + vuex
 
 -- static 静态资源
 -- test 测试用例
-
+```
 ## 下载
 
 ```bash
